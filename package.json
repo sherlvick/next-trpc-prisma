@@ -10,13 +10,21 @@
   },
   "dependencies": {
     "@prisma/client": "5.6.0",
+    "@trpc/client": "9.27.2",
+    "@trpc/next": "9.27.2",
+    "@trpc/react": "9.27.2",
+    "@trpc/server": "9.27.2",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.0.3",
     "prisma": "^5.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ts-node": "^10.9.1"
+    "react-query": "3",
+    "ts-node": "^10.9.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "20.10.3",
     "@types/react": "18.2.41",
     "@types/react-dom": "18.2.17",
