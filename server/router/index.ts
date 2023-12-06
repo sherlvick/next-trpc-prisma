@@ -3,9 +3,9 @@
 import { createRouter } from "./context";
 // import doctorRouter from "./doctor";
 // import uploadRouter from "./upload";
-import userRouter from "./user";
+import userRouter from "./users";
 // import { adminRouter } from "./admin";
 
-export const appRouter = createRouter().merge("user.", userRouter);
+export const appRouter = createRouter().merge("users.", userRouter);
 
 export type AppRouter = typeof appRouter;

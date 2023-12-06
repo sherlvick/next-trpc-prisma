@@ -4,9 +4,14 @@ import { loggerLink } from "@trpc/client/links/loggerLink";
 import type { AppProps } from "next/app";
 import { withTRPC } from "@trpc/next";
 import { AppRouter } from "../server/router";
+import Layout from "./components/layout";
 
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
 const getLinks = () => {
@@ -23,7 +28,7 @@ export default withTRPC<AppRouter>({
      * If you want to use SSR, you need to use the server's full URL
      * @link https://trpc.io/docs/ssr
      */
-    console.log("bnkj",ctx);
+    console.log("bnkj", ctx);
     return {
       links: [
         loggerLink({
