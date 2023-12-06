@@ -37,7 +37,9 @@ const doctorRouter = createRouter()
       const { db } = ctx;
       const { name, phoneNumber, address, email, image, gender } = input;
 
-      const imageBytes = await image.arrayBuffer();
+      let imageBytes;
+      if (image)
+        imageBytes = await image.arrayBuffer();
 
       //   const user = await ctx.db.user.findFirstOrThrow({
       //     where: { id: ctx.userId },

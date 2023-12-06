@@ -4,13 +4,11 @@ import { loggerLink } from "@trpc/client/links/loggerLink";
 import type { AppProps } from "next/app";
 import { withTRPC } from "@trpc/next";
 import { AppRouter } from "../server/router";
-import Layout from "./components/layout";
+import SnackbarProvider from "react-simple-snackbar";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <SnackbarProvider><Component {...pageProps} /></SnackbarProvider>
   );
 }
 
@@ -28,7 +26,6 @@ export default withTRPC<AppRouter>({
      * If you want to use SSR, you need to use the server's full URL
      * @link https://trpc.io/docs/ssr
      */
-    console.log("bnkj", ctx);
     return {
       links: [
         loggerLink({

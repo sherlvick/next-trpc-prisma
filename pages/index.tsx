@@ -2,11 +2,15 @@ import type { NextPage } from "next";
 import { trpc } from "../utils/trpc";
 import { useState } from "react";
 
+import Layout from "./components/layout";
+
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
+
   const { isLoading, data } = trpc.useQuery(["users.all", { email: search }]);
-  console.log("asx", data);
+  
   return (
+    <Layout pageTitle="Users List" btnText="+ Add User" navPathName="/create">
     <div className="container mx-auto mt-8">
       <table className="table-auto w-full">
         <thead className="bg-grey">
@@ -39,6 +43,7 @@ const Home: NextPage = () => {
         </tbody>
       </table>
     </div>
+    </Layout>
   );
 };
 
