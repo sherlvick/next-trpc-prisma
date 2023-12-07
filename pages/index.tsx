@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import { trpc } from "../utils/trpc";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const [search, setSearch] = useState("");
 
   const { isLoading, data } = trpc.useQuery(["users.all", { email: search }]);
-  console.log("isLoading", isLoading);
+
   return (
     <Layout pageTitle="Users List" btnText="+ Add User" navPathName="/create">
       <div className="container mx-auto mt-8">
@@ -55,3 +55,16 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  if (!req.cookies.accessToken) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
+};

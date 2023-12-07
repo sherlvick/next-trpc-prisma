@@ -13,7 +13,7 @@ const authRouter = createRouter()
     }),
     resolve: async ({ ctx, input }) => {
       const { password, username } = input;
-
+      // console.log('xvccx', ctx.db);
       const admin = await ctx.db.admin.findFirst({
         where: { user_name: username?.toLowerCase().trim() },
       });
