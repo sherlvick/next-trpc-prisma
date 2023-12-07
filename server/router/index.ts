@@ -1,11 +1,11 @@
 // import superjson from "superjson";
-// import authRouter from "./auth";
 import { createRouter } from "./context";
-// import doctorRouter from "./doctor";
-// import uploadRouter from "./upload";
 import userRouter from "./users";
+import authRouter from "./auth";
 // import { adminRouter } from "./admin";
 
-export const appRouter = createRouter().merge("users.", userRouter);
+export const appRouter = createRouter()
+  .merge("users.", userRouter)
+  .merge("auth.", authRouter);
 
 export type AppRouter = typeof appRouter;
