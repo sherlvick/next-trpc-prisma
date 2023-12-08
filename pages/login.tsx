@@ -39,13 +39,13 @@ const Login: NextPage = ({ }) => {
     <div className="h-93vh flex flex-col">
       <div className="flex justify-center grow">
         <div className="flex flex-col mt-5 items-center">
-          {/* <Image
+          <Image
             src="/pngwing.com.png"
             alt="DMF"
             className="mb-7"
             width={100}
             height={100}
-          /> */}
+          />
 
           <div className={`flex flex-col w-80`}>
             <h1 className="text-[#264A98] text-sm text-left">Employee ID</h1>
